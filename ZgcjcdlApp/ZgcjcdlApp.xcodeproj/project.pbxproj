@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C33C5C721A6C73900E7ED3F /* APP in Resources */ = {isa = PBXBuildFile; fileRef = 2C33C5C621A6C73900E7ED3F /* APP */; };
 		2C63316C21A2740D001FF425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63316B21A2740D001FF425 /* AppDelegate.swift */; };
 		2C63316E21A2740D001FF425 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63316D21A2740D001FF425 /* ViewController.swift */; };
 		2C63317121A2740D001FF425 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C63316F21A2740D001FF425 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C33C5C621A6C73900E7ED3F /* APP */ = {isa = PBXFileReference; lastKnownFileType = folder; name = APP; path = "../../../../Downloads/中关村集成电路/APP"; sourceTree = "<group>"; };
 		2C63316821A2740D001FF425 /* ZgcjcdlApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZgcjcdlApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C63316B21A2740D001FF425 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C63316D21A2740D001FF425 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 		2C63316A21A2740D001FF425 /* ZgcjcdlApp */ = {
 			isa = PBXGroup;
 			children = (
+				2C33C5C621A6C73900E7ED3F /* APP */,
 				2C63316B21A2740D001FF425 /* AppDelegate.swift */,
 				2C63316D21A2740D001FF425 /* ViewController.swift */,
 				2C63316F21A2740D001FF425 /* Main.storyboard */,
@@ -122,6 +125,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C33C5C721A6C73900E7ED3F /* APP in Resources */,
 				2C63317621A2740E001FF425 /* LaunchScreen.storyboard in Resources */,
 				2C63317321A2740E001FF425 /* Assets.xcassets in Resources */,
 				2C63317121A2740D001FF425 /* Main.storyboard in Resources */,
