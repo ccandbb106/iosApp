@@ -19,17 +19,29 @@ class ViewController: UIViewController ,WKNavigationDelegate,WKScriptMessageHand
             let userInfo = message.body as! [String:String]
             UserDefaults.standard.set(userInfo["username"]!, forKey: "username")
             UserDefaults.standard.set(userInfo["pwd"]!, forKey: "password")
-        }else{
+        }else if message.name == "changePwdSuccess" {
             print("have catch the changePwdSuccess message!!")
             UserDefaults.standard.removeObject(forKey: "username")
             UserDefaults.standard.removeObject(forKey: "password")
-            let alert = UIAlertController(title: "提示", message: "修改密码成功，请重新登录!", preferredStyle: .alert)
-            let action = UIAlertAction(title: "好的", style: .cancel) { (_) in
-                self.wkWebView.loadFileURL(NSURL.fileURL(withPath: Bundle.main.path(forResource: "login", ofType: "html", inDirectory: "APP")!), allowingReadAccessTo: NSURL.fileURL(withPath: Bundle.main.path(forResource: "login", ofType: "html", inDirectory: "APP")!))
-            }
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
             
+        }else{
+            print("have catch the recharge message!!")
+            let payMessage = message.body as! [String:Any]
+            if payMessage["paySelected"] as! String == "支付宝" {
+                let alert = UIAlertController(title: "提示", message: "支付宝充值成功!", preferredStyle: .alert)
+                let action = UIAlertAction(title: "好的", style: .cancel) { (_) in
+                    self.wkWebView.loadFileURL(NSURL.fileURL(withPath: Bundle.main.path(forResource: "recharge", ofType: "html", inDirectory: "APP")!), allowingReadAccessTo: NSURL.fileURL(withPath: Bundle.main.path(forResource: "recharge", ofType: "html", inDirectory: "APP")!))
+                }
+                alert.addAction(action)
+                present(alert, animated: true, completion: nil)
+            }else{
+                let alert = UIAlertController(title: "提示", message: "微信充值成功!", preferredStyle: .alert)
+                let action = UIAlertAction(title: "好的", style: .cancel) { (_) in
+                    self.wkWebView.loadFileURL(NSURL.fileURL(withPath: Bundle.main.path(forResource: "recharge", ofType: "html", inDirectory: "APP")!), allowingReadAccessTo: NSURL.fileURL(withPath: Bundle.main.path(forResource: "recharge", ofType: "html", inDirectory: "APP")!))
+                }
+                alert.addAction(action)
+                present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -39,7 +51,8 @@ class ViewController: UIViewController ,WKNavigationDelegate,WKScriptMessageHand
         let config = WKWebViewConfiguration()
         config.userContentController.add(self, name: "storeUserInfo")
         config.userContentController.add(self, name: "changePwdSuccess")
-        wkWebView = WKWebView(frame: view.bounds, configuration: config)
+        config.userContentController.add(self, name: "recharge")
+        wkWebView = WKWebView(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-20), configuration: config)
        
         //check login status
         var path = ""
